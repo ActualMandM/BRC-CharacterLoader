@@ -6,7 +6,8 @@ namespace BRC_CharacterLoader
 	{
 		public static MoveStyle ParseMoveStyle(string enumString)
 		{
-			switch (enumString.ToLower())
+			var cleanString = enumString.ToLower().Replace(" ", "");
+			switch (cleanString.Trim())
 			{
 				case "bmx":
 					return MoveStyle.BMX;
@@ -18,14 +19,14 @@ namespace BRC_CharacterLoader
 				case "inline":
 				case "skates":
 				case "inlineskates":
-				case "inline skates":
 					return MoveStyle.INLINE;
 			}
 		}
 
 		public static Characters ParseCharacter(string enumString)
 		{
-			switch (enumString.ToLower())
+			var cleanString = enumString.ToLower().Replace(" ", "").Replace(".", "");
+			switch (cleanString.Trim())
 			{
 				case "girl1":
 				case "vinyl":
@@ -57,8 +58,6 @@ namespace BRC_CharacterLoader
 
 				case "eightball":
 				case "dotexe":
-				case "dot exe":
-				case "dot.exe":
 					return Characters.eightBall;
 
 				case "dummy":
@@ -67,7 +66,6 @@ namespace BRC_CharacterLoader
 
 				case "dj":
 				case "djcyber":
-				case "dj cyber":
 					return Characters.dj;
 
 				case "medusa":
@@ -76,7 +74,6 @@ namespace BRC_CharacterLoader
 
 				case "boarder":
 				case "deviltheory":
-				case "devil theory":
 					return Characters.boarder;
 
 				case "headman":
@@ -85,11 +82,12 @@ namespace BRC_CharacterLoader
 
 				case "prince":
 				case "fleshprince":
-				case "flesh prince":
 					return Characters.prince;
 
 				case "jetpackbossplayer":
+				case "jetpackboss":
 				case "ritvield":
+				case "irene":
 					return Characters.jetpackBossPlayer;
 
 				case "legendface":
@@ -126,14 +124,10 @@ namespace BRC_CharacterLoader
 
 				case "eightballboss":
 				case "dotexeboss":
-				case "dot.exeboss":
-				case "dot exe boss":
-				case "dot.exe boss":
 					return Characters.eightBallBoss;
 
 				case "legendmetalhead":
 				case "redfelix":
-				case "red felix":
 					return Characters.legendMetalHead;
 			}
 		}

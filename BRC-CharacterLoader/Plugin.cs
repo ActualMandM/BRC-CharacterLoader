@@ -15,15 +15,18 @@ namespace BRC_CharacterLoader
 	{
 		public const string ModGuid = "com.MandM.BRC-CharacterLoader";
 		public const string ModName = "BRC-CharacterLoader";
-		public const string ModVer = "0.9.0";
+		public const string ModVer = "0.9.1";
 
 		public void Awake()
 		{
-			string pluginPath = Path.GetDirectoryName(Info.Location);
+			string charaPath = Path.GetDirectoryName(Info.Location) + "/Characters";
+
+			if (!Directory.Exists(charaPath))
+				Directory.CreateDirectory(charaPath);
 
 			try
 			{
-				foreach (string folder in Directory.GetDirectories(pluginPath + "/Characters"))
+				foreach (string folder in Directory.GetDirectories(charaPath))
 				{
 					string jsonText = File.ReadAllText(folder + "/metadata.json");
 					List<Metadata> ModCharacters = new List<Metadata>();
@@ -60,9 +63,7 @@ namespace BRC_CharacterLoader
 						if (charaData.outfits != null)
 						{
 							foreach (Outfit outfitData in charaData.outfits)
-							{
 								chara.AddOutfit(bundle.LoadAsset<Material>(outfitData.outfitMaterial), outfitData.outfitName);
-							}
 						}
 						else
 						{
