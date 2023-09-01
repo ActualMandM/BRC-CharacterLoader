@@ -29,25 +29,15 @@ namespace BRC_CharacterLoader
 				foreach (string folder in Directory.GetDirectories(charaPath))
 				{
 					string jsonText = File.ReadAllText(folder + "/metadata.json");
-					List<Metadata> ModCharacters = new List<Metadata>();
+					List<Metadata>? modCharacters = JsonSerializer.Deserialize<List<Metadata>>(jsonText);
 
-					try
-					{
-						ModCharacters = JsonSerializer.Deserialize<List<Metadata>>(jsonText);
-					}
-					catch (Exception ex)
-					{
-						Logger.LogInfo("Exception: " + ex.Message);
-						continue;
-					}
-
-					if (ModCharacters == null)
+					if (modCharacters == null)
 					{
 						Logger.LogInfo($"JSON data in {new DirectoryInfo(folder).Name} either doesn't exist or is invalid! Skipping...");
 						continue;
 					}
 
-					foreach (var charaData in ModCharacters)
+					foreach (Metadata charaData in modCharacters)
 					{
 						AssetBundle bundle = AssetBundle.LoadFromFile(Path.Combine(folder, charaData.bundleName));
 
@@ -67,7 +57,7 @@ namespace BRC_CharacterLoader
 						}
 						else
 						{
-							Logger.LogInfo($"{charaData.charaName} is missing outfit data! Skipping...");
+							Logger.LogInfo(charaData.charaName + " is missing outfit data! Skipping...");
 							continue;
 						}
 
