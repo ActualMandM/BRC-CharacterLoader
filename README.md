@@ -30,11 +30,11 @@ You can also have several character entries in the metadata, in case you want to
 		"bundleName": "beat",
 		"prefabName": "beat_no_blades",
 		"charaName": "Beat",
-		"defaultOutfit": 1,
+		"defaultOutfit": 0,
 		"moveStyle": "inline",
 		"voice": "felix",
-		"freeStyle": 16,
-		"bounce": 4,
+		"freeStyle": 15,
+		"bounce": 3,
 		"outfits": [
 			{
 				"outfitMaterial": "beatDefault",

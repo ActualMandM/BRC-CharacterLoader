@@ -15,7 +15,7 @@ namespace BRC_CharacterLoader
 	{
 		public const string ModGuid = "com.MandM.BRC-CharacterLoader";
 		public const string ModName = "BRC-CharacterLoader";
-		public const string ModVer = "0.9.1";
+		public const string ModVer = "0.9.2";
 
 		public void Awake()
 		{
@@ -44,11 +44,11 @@ namespace BRC_CharacterLoader
 						ModdedCharacterConstructor chara = new ModdedCharacterConstructor();
 						chara.characterName = charaData.charaName;
 						chara.characterPrefab = bundle.LoadAsset<GameObject>(charaData.prefabName);
-						chara.defaultOutfit = Math.Abs(charaData.defaultOutfit - 1) % 4;
+						chara.defaultOutfit = Math.Abs(charaData.defaultOutfit) % 4;
 						chara.defaultMoveStyle = EnumString.ParseMoveStyle(charaData.moveStyle);
 						chara.tempAudioBase = EnumString.ParseCharacter(charaData.voice);
-						chara.freestyleType = (ModdedCharacterConstructor.FreestyleType)(Math.Abs(charaData.freeStyle - 1) % 19);
-						chara.bounceType = (ModdedCharacterConstructor.BounceType)(Math.Abs(charaData.bounce - 1) % 16);
+						chara.freestyleType = (ModdedCharacterConstructor.FreestyleType)(Math.Abs(charaData.freeStyle) % 19);
+						chara.bounceType = (ModdedCharacterConstructor.BounceType)(Math.Abs(charaData.bounce) % 16);
 
 						if (charaData.outfits != null)
 						{
