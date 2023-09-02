@@ -8,15 +8,11 @@ using UnityEngine;
 
 namespace BRC_CharacterLoader
 {
-	[BepInPlugin(ModGuid, ModName, ModVer)]
+	[BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.2")]
 	[BepInDependency("com.Viliger.CharacterAPI")]
 
 	public class Plugin : BaseUnityPlugin
 	{
-		public const string ModGuid = "com.MandM.BRC-CharacterLoader";
-		public const string ModName = "BRC-CharacterLoader";
-		public const string ModVer = "0.9.2";
-
 		public void Awake()
 		{
 			string charaPath = Path.GetDirectoryName(Info.Location) + "/Characters";
