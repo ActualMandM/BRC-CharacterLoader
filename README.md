@@ -1,5 +1,5 @@
 # BRC-CharacterLoader
-A BepInEx plugin for [Bomb Rush Cyberfunk](https://store.steampowered.com/app/1353230) that allows people to easily add custom characters via [CharacterAPI](https://github.com/viliger2/BRC_CharacterAPI).
+A BepInEx plugin for [Bomb Rush Cyberfunk](https://store.steampowered.com/app/1353230) that allows people to easily add [CharacterAPI](https://github.com/viliger2/BRC_CharacterAPI) characters.
 
 ## Usage (for creating)
 Download and install [this plugin](https://github.com/ActualMandM/BRC-CharacterLoader/releases/latest), [CharacterAPI](https://thunderstore.io/c/bomb-rush-cyberfunk/p/viliger/CharacterAPI/), and any required dependencies. Follow [CharacterAPI's tutorial](https://github.com/viliger2/BRC_CharacterAPI/wiki/Creating-new-character-via-plugin) up until creating a plugin.
