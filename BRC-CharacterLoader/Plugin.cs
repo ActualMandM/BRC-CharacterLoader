@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace BRC_CharacterLoader
 {
-	[BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.3")]
+	[BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.4")]
 	[BepInDependency("com.Viliger.CharacterAPI", "0.6.0")]
 
 	public class Plugin : BaseUnityPlugin
@@ -21,16 +21,16 @@ namespace BRC_CharacterLoader
 			if (!Directory.Exists(charaPath))
 				Directory.CreateDirectory(charaPath);
 
-			try
+			foreach (string folder in Directory.GetDirectories(charaPath))
 			{
-				foreach (string folder in Directory.GetDirectories(charaPath))
+				try
 				{
 					string jsonText = File.ReadAllText(folder + "/metadata.json");
 					List<Metadata>? modCharacters = JsonSerializer.Deserialize<List<Metadata>>(jsonText);
 
 					if (modCharacters == null)
 					{
-						Logger.LogInfo($"JSON data in {new DirectoryInfo(folder).Name} either doesn't exist or is invalid! Skipping...");
+						Logger.LogError($"[{new DirectoryInfo(folder).Name}] JSON data either doesn't exist or is invalid.");
 						continue;
 					}
 
@@ -58,8 +58,7 @@ namespace BRC_CharacterLoader
 						}
 						else
 						{
-							Logger.LogInfo(charaData.charaName + " is missing outfit data! Skipping...");
-							continue;
+							Logger.LogError($"[{new DirectoryInfo(folder).Name}] {charaData.charaName} is missing outfit data.");
 						}
 
 						if (charaData.graffiti != null)
@@ -82,10 +81,10 @@ namespace BRC_CharacterLoader
 						chara.CreateModdedCharacter();
 					}
 				}
-			}
-			catch (Exception ex)
-			{
-				Logger.LogInfo("Exception: " + ex.Message);
+				catch (Exception ex)
+				{
+					Logger.LogError($"[{new DirectoryInfo(folder).Name}] Exception: " + ex.Message);
+				}
 			}
 		}
 	}
