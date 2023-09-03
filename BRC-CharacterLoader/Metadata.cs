@@ -9,7 +9,7 @@ namespace BRC_CharacterLoader
 		public string charaName { get; set; } = string.Empty;
 		public int defaultOutfit { get; set; }
 		public string moveStyle { get; set; } = string.Empty;
-		public string voice { get; set; } = string.Empty;
+		public string voiceBase { get; set; } = string.Empty;
 		public int freeStyle { get; set; }
 		public int bounce { get; set; }
 		public List<Outfit>? outfits { get; set; }

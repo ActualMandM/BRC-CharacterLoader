@@ -1,17 +1,16 @@
 # BRC-CharacterLoader
 A BepInEx plugin for [Bomb Rush Cyberfunk](https://store.steampowered.com/app/1353230) that allows people to easily add custom characters via [CharacterAPI](https://github.com/viliger2/BRC_CharacterAPI).
 
-## Usage
+## Usage (for creating)
+Download and install [this plugin](https://github.com/ActualMandM/BRC-CharacterLoader/releases/latest), [CharacterAPI](https://thunderstore.io/c/bomb-rush-cyberfunk/p/viliger/CharacterAPI/), and any required dependencies. Follow [CharacterAPI's tutorial](https://github.com/viliger2/BRC_CharacterAPI/wiki/Creating-new-character-via-plugin) up until creating a plugin.
 
-Download and install [this plugin](https://github.com/ActualMandM/BRC-CharacterLoader/releases/latest) and [CharacterAPI](https://thunderstore.io/c/bomb-rush-cyberfunk/p/viliger/CharacterAPI/). Follow [CharacterAPI's tutorial](https://github.com/viliger2/BRC_CharacterAPI/wiki/Creating-new-character-via-plugin) up until creating a plugin.
-
-Then, in the `Characters` folder of this plugin, create a new folder. Then create a file called `metadata.json` based off the [example JSON](#example-json).
+Then, in the `Characters` folder of this plugin, create a new folder. Then create a file called `metadata.json` with the contents of the [example JSON](#example-json).
 
 You then need to modify the json to fit your character. Certain variables will take in certain values which are noted below:
 
-- `voice`, `graffitiBase`: Character names, either what they're called in-game or their internal name.
+- `voiceBase`, `graffitiBase`: Character names, either what they're called in-game or their internal name
   - Defaults to Red if invalid
-  - `graffitiBase` must be left blank if you're using custom graffiti, otherwise it'll override
+  - Must be left blank if you're using custom voice or graffiti, otherwise it'll override
   - DOT.EXE's boss can be selected by either using the internal name (`eightballBoss`) or by specifying boss (`dotexeboss`)
   - Ritvield can also be selected with `irene`
 - `moveStyle`: Move style, internal name and in-game names pretty much match up
@@ -32,7 +31,7 @@ You can also have several character entries in the metadata, in case you want to
 		"charaName": "Beat",
 		"defaultOutfit": 0,
 		"moveStyle": "inline",
-		"voice": "felix",
+		"voiceBase": "",
 		"freeStyle": 15,
 		"bounce": 3,
 		"outfits": [

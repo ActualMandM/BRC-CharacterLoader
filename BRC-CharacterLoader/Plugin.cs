@@ -3,13 +3,14 @@ using CharacterAPI;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using UnityEngine;
 
 namespace BRC_CharacterLoader
 {
-	[BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.2")]
-	[BepInDependency("com.Viliger.CharacterAPI")]
+	[BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.3")]
+	[BepInDependency("com.Viliger.CharacterAPI", "0.6.0")]
 
 	public class Plugin : BaseUnityPlugin
 	{
@@ -42,9 +43,13 @@ namespace BRC_CharacterLoader
 						chara.characterPrefab = bundle.LoadAsset<GameObject>(charaData.prefabName);
 						chara.defaultOutfit = Math.Abs(charaData.defaultOutfit) % 4;
 						chara.defaultMoveStyle = EnumString.ParseMoveStyle(charaData.moveStyle);
-						chara.tempAudioBase = EnumString.ParseCharacter(charaData.voice);
 						chara.freestyleType = (ModdedCharacterConstructor.FreestyleType)(Math.Abs(charaData.freeStyle) % 19);
 						chara.bounceType = (ModdedCharacterConstructor.BounceType)(Math.Abs(charaData.bounce) % 16);
+
+						if (!String.IsNullOrEmpty(charaData.voiceBase))
+							chara.tempAudioBase = EnumString.ParseCharacter(charaData.voiceBase);
+						else
+							chara.audioClips = bundle.LoadAllAssets<AudioClip>().ToList();
 
 						if (charaData.outfits != null)
 						{
