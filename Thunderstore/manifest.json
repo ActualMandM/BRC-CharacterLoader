@@ -1,6 +1,6 @@
 {
   "name": "BRC_CharacterLoader",
-  "version_number": "0.9.4",
+  "version_number": "0.9.5",
   "website_url": "https://github.com/ActualMandM/BRC-CharacterLoader",
   "description": "A plugin that allows people to easily add CharacterAPI characters to Bomb Rush Cyberfunk.",
   "dependencies": [
