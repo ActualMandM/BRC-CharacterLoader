@@ -20,7 +20,7 @@ namespace BRC_CharacterLoader
 
 		public void Awake()
 		{
-			string charaPath = Path.GetDirectoryName(Info.Location) + "/Characters";
+			string charaPath = Path.Combine(Path.GetDirectoryName(Info.Location), "Characters");
 
 			if (!Directory.Exists(charaPath))
 				Directory.CreateDirectory(charaPath);
@@ -37,6 +37,7 @@ namespace BRC_CharacterLoader
 					{
 						if (Path.GetExtension(file) == ".dll")
 						{
+							Logger.LogError($"[{folderName}] BepInEx plugin detected.");
 							MessageBox(IntPtr.Zero, $"{folderName} is a BepInEx plugin, it will not load through BRC-CharacterLoader.\n\nPlease install it in the proper location: \"BombRushCyberfunk\\BepInEx\\plugins\"", "BRC-CharacterLoader", 0);
 							isPlugin = true;
 						}
