@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace BRC_CharacterLoader
 {
-	[BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.5")]
+	[BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.6")]
 	[BepInDependency("com.Viliger.CharacterAPI", "0.6.0")]
 
 	public class Plugin : BaseUnityPlugin
