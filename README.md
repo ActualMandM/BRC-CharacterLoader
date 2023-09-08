@@ -14,7 +14,7 @@ You then need to modify the json to fit your character. Certain variables will t
   - Defaults to Red if invalid
   - Must be left blank if you're using custom voice or graffiti, otherwise it'll override
   - DOT.EXE's boss can be selected by either using the internal name (`eightballBoss`) or by specifying boss (`dotexeboss`)
-  - Ritvield can also be selected with `irene`
+  - Rietveld can also be selected with `irene`
 - `moveStyle`: Move style, internal name and in-game names pretty much match up
   - Defaults to Skateboard if invalid
   - Inline skates can also be selected with `skates`

@@ -86,7 +86,7 @@ namespace BRC_CharacterLoader
 
 				case "jetpackbossplayer":
 				case "jetpackboss":
-				case "ritvield":
+				case "rietveld":
 				case "irene":
 					return Characters.jetpackBossPlayer;
 
