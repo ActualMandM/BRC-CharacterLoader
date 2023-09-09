@@ -7,11 +7,12 @@ namespace BRC_CharacterLoader
 		public string bundleName { get; set; } = string.Empty;
 		public string prefabName { get; set; } = string.Empty;
 		public string charaName { get; set; } = string.Empty;
-		public int defaultOutfit { get; set; }
-		public string moveStyle { get; set; } = string.Empty;
+		public int defaultOutfit { get; set; } = 0;
+		public bool canBlink { get; set; } = false;
+        public string moveStyle { get; set; } = string.Empty;
 		public string voiceBase { get; set; } = string.Empty;
-		public int freeStyle { get; set; }
-		public int bounce { get; set; }
+		public int freeStyle { get; set; } = 0;
+		public int bounce { get; set; } = 0;
 		public List<Outfit>? outfits { get; set; }
 		public Graffiti? graffiti { get; set; }
 	}
