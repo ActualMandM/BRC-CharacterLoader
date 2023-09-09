@@ -6,130 +6,48 @@ namespace BRC_CharacterLoader
 	{
 		public static MoveStyle ParseMoveStyle(string enumString)
 		{
-			var cleanString = enumString.ToLower().Replace(" ", "");
-			switch (cleanString.Trim())
-			{
-				case "bmx":
-					return MoveStyle.BMX;
+			var cleanString = enumString.ToLowerInvariant().Replace(" ", "").Trim();
 
-				default:
-				case "skateboard":
-					return MoveStyle.SKATEBOARD;
-
-				case "inline":
-				case "skates":
-				case "inlineskates":
-					return MoveStyle.INLINE;
-			}
-		}
+            return cleanString switch
+            {
+                "bmx" => MoveStyle.BMX,
+                "inline" or "skates" or "inlineskates" => MoveStyle.INLINE,
+                _ => MoveStyle.SKATEBOARD,
+            };
+        }
 
 		public static Characters ParseCharacter(string enumString)
 		{
-			var cleanString = enumString.ToLower().Replace(" ", "").Replace(".", "");
-			switch (cleanString.Trim())
-			{
-				case "girl1":
-				case "vinyl":
-					return Characters.girl1;
+			var cleanString = enumString.ToLowerInvariant().Replace(" ", "").Replace(".", "").Trim();
 
-				case "frank":
-					return Characters.frank;
-
-				case "ringdude":
-				case "coil":
-					return Characters.ringdude;
-
-				default:
-				case "metalhead":
-				case "red":
-					return Characters.metalHead;
-
-				case "blockguy":
-				case "tryce":
-					return Characters.blockGuy;
-
-				case "spacegirl":
-				case "bel":
-					return Characters.spaceGirl;
-
-				case "angel":
-				case "rave":
-					return Characters.angel;
-
-				case "eightball":
-				case "dotexe":
-					return Characters.eightBall;
-
-				case "dummy":
-				case "solace":
-					return Characters.dummy;
-
-				case "dj":
-				case "djcyber":
-					return Characters.dj;
-
-				case "medusa":
-				case "eclipse":
-					return Characters.medusa;
-
-				case "boarder":
-				case "deviltheory":
-					return Characters.boarder;
-
-				case "headman":
-				case "faux":
-					return Characters.headMan;
-
-				case "prince":
-				case "fleshprince":
-					return Characters.prince;
-
-				case "jetpackbossplayer":
-				case "jetpackboss":
-				case "rietveld":
-				case "irene":
-					return Characters.jetpackBossPlayer;
-
-				case "legendface":
-				case "felix":
-					return Characters.legendFace;
-
-				case "oldheadplayer":
-				case "oldhead":
-					return Characters.oldheadPlayer;
-
-				case "robot":
-				case "base":
-					return Characters.robot;
-
-				case "skate":
-				case "jet":
-					return Characters.skate;
-
-				case "widekid":
-				case "mesh":
-					return Characters.wideKid;
-
-				case "futuregirl":
-				case "futurism":
-					return Characters.futureGirl;
-
-				case "puffergirl":
-				case "rise":
-					return Characters.pufferGirl;
-
-				case "bungirl":
-				case "shine":
-					return Characters.bunGirl;
-
-				case "eightballboss":
-				case "dotexeboss":
-					return Characters.eightBallBoss;
-
-				case "legendmetalhead":
-				case "redfelix":
-					return Characters.legendMetalHead;
-			}
-		}
+            return cleanString switch
+            {
+                "girl1" or "vinyl" => Characters.girl1,
+                "frank" => Characters.frank,
+                "ringdude" or "coil" => Characters.ringdude,
+                "blockguy" or "tryce" => Characters.blockGuy,
+                "spacegirl" or "bel" => Characters.spaceGirl,
+                "angel" or "rave" => Characters.angel,
+                "eightball" or "dotexe" => Characters.eightBall,
+                "dummy" or "solace" => Characters.dummy,
+                "dj" or "djcyber" => Characters.dj,
+                "medusa" or "eclipse" => Characters.medusa,
+                "boarder" or "deviltheory" => Characters.boarder,
+                "headman" or "faux" => Characters.headMan,
+                "prince" or "fleshprince" => Characters.prince,
+                "jetpackbossplayer" or "jetpackboss" or "rietveld" or "irene" => Characters.jetpackBossPlayer,
+                "legendface" or "felix" => Characters.legendFace,
+                "oldheadplayer" or "oldhead" => Characters.oldheadPlayer,
+                "robot" or "base" => Characters.robot,
+                "skate" or "jet" => Characters.skate,
+                "widekid" or "mesh" => Characters.wideKid,
+                "futuregirl" or "futurism" => Characters.futureGirl,
+                "puffergirl" or "rise" => Characters.pufferGirl,
+                "bungirl" or "shine" => Characters.bunGirl,
+                "eightballboss" or "dotexeboss" => Characters.eightBallBoss,
+                "legendmetalhead" or "redfelix" => Characters.legendMetalHead,
+                _ => Characters.metalHead,
+            };
+        }
 	}
 }
