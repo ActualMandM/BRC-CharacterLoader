@@ -33,6 +33,7 @@ You can also have several character entries in the metadata, in case you want to
 		"charaName": "Beat",
 		"defaultOutfit": 0,
 		"canBlink": false,
+		"customShader": false,
 		"moveStyle": "inline",
 		"voiceBase": "",
 		"freeStyle": 15,

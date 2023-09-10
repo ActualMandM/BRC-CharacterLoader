@@ -9,6 +9,7 @@ namespace BRC_CharacterLoader
         public string charaName { get; set; } = string.Empty;
         public int defaultOutfit { get; set; } = 0;
         public bool canBlink { get; set; } = false;
+        public bool customShader { get; set; } = false;
         public string moveStyle { get; set; } = string.Empty;
         public string voiceBase { get; set; } = string.Empty;
         public int freeStyle { get; set; } = 0;

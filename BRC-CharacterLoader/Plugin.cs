@@ -10,8 +10,8 @@ using UnityEngine;
 
 namespace BRC_CharacterLoader
 {
-    [BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.9")]
-    [BepInDependency("com.Viliger.CharacterAPI", "0.8.0")]
+    [BepInPlugin("com.MandM.BRC-CharacterLoader", "BRC-CharacterLoader", "0.9.10")]
+    [BepInDependency("com.Viliger.CharacterAPI", "0.9.0")]
 
     public class Plugin : BaseUnityPlugin
     {
@@ -64,6 +64,7 @@ namespace BRC_CharacterLoader
                         chara.characterPrefab = bundle.LoadAsset<GameObject>(charaData.prefabName);
                         chara.defaultOutfit = Math.Abs(charaData.defaultOutfit) % 4;
                         chara.canBlink = charaData.canBlink;
+                        chara.usesCustomShader = charaData.customShader;
                         chara.defaultMoveStyle = EnumString.ParseMoveStyle(charaData.moveStyle);
                         chara.freestyleType = (ModdedCharacterConstructor.FreestyleType)(Math.Abs(charaData.freeStyle) % 19);
                         chara.bounceType = (ModdedCharacterConstructor.BounceType)(Math.Abs(charaData.bounce) % 16);
